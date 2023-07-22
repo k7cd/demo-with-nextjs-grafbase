@@ -1,0 +1,47 @@
+schema
+  @auth(
+    providers: [
+      {
+        type: jwt
+        issuer: "{{ env.ISSUER_URL }}"
+        secret: "{{ env.NEXTAUTH_SECRET }}"
+      }
+    ]
+    rules: [{ allow: private }]
+  ) {
+  query: Query
+}
+
+enum GenderType {
+  MALE
+  FEMALE
+}
+
+# 患者
+type Patient @model @search {
+  name: String! # 姓名
+  idCard: String # 身份证号
+  patientID: Int! @unique # 就诊卡(需唯一)
+  age: Int! # 年龄
+  gender: GenderType! # 性别
+  address: String # 地址
+  phone: String # 电话
+  records: [Record] # 就诊记录
+}
+
+# 医生
+type Doctor @model @search {
+  name: String! # 姓名
+  gender: GenderType! # 性别
+  dept: String! # 科室
+}
+
+# 就诊记录
+type Record @model @search {
+  patient: Patient! # 患者
+  doctor: Doctor! # 医生
+  date: String! # 就诊日期
+  diagnose: String # 诊断
+  medicine: String # 药物
+  fee: Int # 费用
+}
