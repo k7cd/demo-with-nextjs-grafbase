@@ -1,34 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Graphql 实战系列-使用 Nextjs+Grafbase 开发患者档案管理应用
 
-## Getting Started
+## 准备工作
 
-First, run the development server:
+- 使用 Grafbase 需要将 Nodejs 版本升级到 18+, 推荐使用 nvm 安装和使用指定版本的 Nodejs;
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```sh
+nvm ls # 查看当前已安装的nodejs版本
+nvm use v18.15.0 # 切换到 v18+ 版本 或
+nvm install v18.15.0 # 安装nodejs 18+ lts 版本
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 使用 PNPM 作为 Nodejs 包管理工具。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 项目搭建步骤
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- 创建一个 Nextjs 项目用于调用 Graphql 服务并完成前端交互:
 
-## Learn More
+  1. 配置登录验证
+  2. 搭建前端页面
+  3. 编写 Graphql 客户端
 
-To learn more about Next.js, take a look at the following resources:
+- 引入 Grafbase 用于提供 Graphql 数据服务, 包括:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  1. 创建和维护 Graphql Schema
+  2. 配置数据访问权限
+  3. 编写基本的 CURD 服务端
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- 自动化部署:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  1. Graphql 数据服务基于 Grafbase 官方的 CICD 部署
+  2. Nextjs 基于 Docker 部署
