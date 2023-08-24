@@ -19,7 +19,7 @@ enum GenderType {
 
 # 患者
 type Patient @model @search {
-  name: String! # 姓名
+  name: String! @search # 姓名
   idCard: String # 身份证号
   patientID: Int! @unique # 就诊卡(需唯一)
   age: Int! # 年龄

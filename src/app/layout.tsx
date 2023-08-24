@@ -21,6 +21,10 @@ export default function RootLayout({
           <Navbar />
           <main className="container mx-auto max-w-2xl py-10">{children}</main>
         </NextAuthProvider>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        />
       </body>
     </html>
   );

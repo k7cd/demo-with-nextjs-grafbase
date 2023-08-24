@@ -88,9 +88,9 @@ export const Records = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {records.map((row: any) => (
+            {records.map((row: any, index: number) => (
               <TableRow
-                key={row.name}
+                key={index}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
